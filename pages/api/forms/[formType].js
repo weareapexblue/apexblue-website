@@ -123,12 +123,21 @@ function validateFormPayload(formType, payload) {
   throw new Error('Unsupported form type.');
 }
 
+function getEnvBySuffix(suffix) {
+  const match = Object.entries(process.env).find(([key, value]) => key.endsWith(`_${suffix}`) && value);
+  return match?.[1] || '';
+}
+
 function getDatabaseUrl() {
   return (
     process.env.DATABASE_URL ||
     process.env.POSTGRES_URL ||
     process.env.POSTGRES_PRISMA_URL ||
     process.env.POSTGRES_URL_NON_POOLING ||
+    getEnvBySuffix('DATABASE_URL') ||
+    getEnvBySuffix('POSTGRES_URL') ||
+    getEnvBySuffix('POSTGRES_PRISMA_URL') ||
+    getEnvBySuffix('POSTGRES_URL_NON_POOLING') ||
     ''
   );
 }
