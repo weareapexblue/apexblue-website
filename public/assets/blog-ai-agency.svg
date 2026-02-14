@@ -1,0 +1,8 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI marketing agency dashboard">
+  <rect width="1200" height="800" fill="#07183f"/>
+  <rect x="120" y="130" width="960" height="540" rx="26" fill="#0b2f72"/>
+  <rect x="170" y="190" width="430" height="180" rx="16" fill="#22d3ee" fill-opacity="0.22"/>
+  <rect x="630" y="190" width="280" height="180" rx="16" fill="#60a5fa" fill-opacity="0.28"/>
+  <rect x="170" y="400" width="740" height="200" rx="16" fill="#0ea5e9" fill-opacity="0.2"/>
+  <path d="M210 530L330 470L420 500L530 430L650 470L780 420" stroke="#7dd3fc" stroke-width="7" fill="none"/>
+</svg>

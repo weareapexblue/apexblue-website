@@ -1,0 +1,18 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI innovation growth pattern">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06163a"/>
+      <stop offset="100%" stop-color="#0a2d72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+  <g stroke="#22d3ee" stroke-width="3" fill="none" opacity="0.75">
+    <path d="M140 620L300 500L460 540L610 420L800 450L1020 250"/>
+    <path d="M140 300L280 260L420 300L590 230L760 280L980 180"/>
+  </g>
+  <g fill="#dbeafe">
+    <circle cx="300" cy="500" r="14"/>
+    <circle cx="610" cy="420" r="14"/>
+    <circle cx="1020" cy="250" r="16"/>
+  </g>
+</svg>

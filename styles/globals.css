@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg-0: #f2f8ff;
+  --bg-1: #ffffff;
+  --text: #0b1736;
+  --muted: #42526d;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-border: rgba(40, 78, 138, 0.2);
+  --accent: #0e7bf5;
+  --accent-2: #22d3ee;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg-0: #050b1d;
+  --bg-1: #0b1328;
+  --text: #eef6ff;
+  --muted: #b5c2db;
+  --panel: rgba(14, 22, 45, 0.7);
+  --panel-border: rgba(88, 138, 220, 0.25);
+  --accent: #65b9ff;
+  --accent-2: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-body antialiased;
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% -10%, rgba(34, 211, 238, 0.15), transparent 35%),
+    radial-gradient(circle at 82% 8%, rgba(14, 123, 245, 0.18), transparent 33%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(14, 123, 245, 0.22);
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  @apply font-display text-3xl font-semibold tracking-tight md:text-4xl;
+}
+
+.section-kicker {
+  @apply text-xs font-semibold uppercase tracking-[0.25em] text-sky-600 dark:text-sky-300;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.prose-content h2,
+.prose-content h3,
+.prose-content h4 {
+  @apply font-display mt-8 mb-3 font-semibold;
+}
+
+.prose-content h2 {
+  @apply text-2xl md:text-3xl;
+}
+
+.prose-content h3 {
+  @apply text-xl md:text-2xl;
+}
+
+.prose-content p,
+.prose-content li {
+  @apply leading-8 text-base md:text-lg;
+}
+
+.prose-content ul,
+.prose-content ol {
+  @apply my-6 pl-6;
+}
+
+.prose-content blockquote {
+  @apply border-l-4 border-sky-500 pl-4 italic;
+}
+
+.prose-content table {
+  @apply my-6 w-full border-collapse overflow-hidden rounded-xl;
+}
+
+.prose-content th,
+.prose-content td {
+  @apply border border-sky-100 px-3 py-2 dark:border-sky-900;
+}
+
+.reveal-enter {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-enter-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

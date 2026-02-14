@@ -1,0 +1,9 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="fractional c suite roles">
+  <rect width="1200" height="800" fill="#07183f"/>
+  <rect x="170" y="180" width="260" height="420" rx="24" fill="#0f3b8a"/>
+  <rect x="470" y="120" width="260" height="480" rx="24" fill="#1457ba"/>
+  <rect x="770" y="220" width="260" height="380" rx="24" fill="#0f3b8a"/>
+  <text x="235" y="390" fill="#dbeafe" font-family="Space Grotesk, sans-serif" font-size="52" font-weight="700">CIO</text>
+  <text x="535" y="390" fill="#dbeafe" font-family="Space Grotesk, sans-serif" font-size="52" font-weight="700">CMO</text>
+  <text x="835" y="390" fill="#dbeafe" font-family="Space Grotesk, sans-serif" font-size="52" font-weight="700">CTO</text>
+</svg>
