@@ -37,13 +37,15 @@ export default function FractionalInquiryForm() {
     try {
       setStatus('loading');
       setMessage('');
-      await submitForm('fractional', {
+      const result = await submitForm('fractional', {
         ...values,
         source: 'apex-blue-fractional-c-suite-form'
       });
 
       setStatus('success');
-      setMessage('Request submitted. Apex Blue will reply with next steps and a discovery call window.');
+      setMessage(
+        result.warning || 'Request submitted. Apex Blue will reply with next steps and a discovery call window.'
+      );
       setValues(initialValues);
     } catch (error) {
       setStatus('error');

@@ -41,12 +41,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment Variables
 
-Create `.env.local` if you want live form delivery or analytics:
+Create `.env.local` to enable live form storage, email notifications, and analytics:
 
 ```bash
-NEXT_PUBLIC_FORMSPREE_CONTACT=
-NEXT_PUBLIC_FORMSPREE_FRACTIONAL=
-NEXT_PUBLIC_FORMSPREE_NEWSLETTER=
+DATABASE_URL=
+RESEND_API_KEY=
+FORM_NOTIFICATION_TO=guru@apex.blue
+FORM_NOTIFICATION_FROM="Apex Blue Forms <forms@apex.blue>"
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=apex.blue
 PLAUSIBLE_API_KEY=
 PLAUSIBLE_SITE_ID=apex.blue
@@ -54,18 +55,18 @@ PLAUSIBLE_SITE_ID=apex.blue
 
 Notes:
 
-- If Formspree env vars are missing, forms simulate successful submission in development/static mode.
+- Forms submit to `/api/forms/[formType]` and are saved in a `form_submissions` table.
+- If `RESEND_API_KEY` is missing, submissions are still saved, but notification email alerts are skipped.
 - If Plausible domain is set, the client tracking script is injected.
 
-## Build and Export
+## Build and Deploy
 
 ```bash
 npm run build
-npm run export
 ```
 
 - `npm run build` generates `public/sitemap.xml` and `public/robots.txt` before building.
-- `npm run export` runs the static export build as well (Next.js 14 uses `output: 'export'` instead of the removed `next export` command) and writes deployable files to `out/`.
+- Deploy the project to Vercel as a standard Next.js app (serverless routes enabled for form APIs).
 
 ## Content Workflows
 
@@ -122,9 +123,14 @@ If API credentials are missing, the script creates a placeholder report with set
 
 ## Deployment
 
-1. Run `npm run build`.
-2. Run `npm run export`.
-3. Deploy the `out/` directory.
+1. Add project environment variables in Vercel (`DATABASE_URL`, `RESEND_API_KEY`, `FORM_NOTIFICATION_TO`, `FORM_NOTIFICATION_FROM`).
+2. Run `npm run build`.
+3. Deploy from GitHub to Vercel.
+
+## Form Data Access
+
+- Submissions are stored in PostgreSQL table: `form_submissions`.
+- You can review records via your database dashboard (Neon/Vercel Postgres) or SQL query tools.
 
 ## Notes
 

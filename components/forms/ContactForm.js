@@ -33,13 +33,15 @@ export default function ContactForm({ formType = 'contact' }) {
       setStatus('loading');
       setResponseMessage('');
 
-      await submitForm(formType, {
+      const result = await submitForm(formType, {
         ...values,
         source: 'apex-blue-contact-form'
       });
 
       setStatus('success');
-      setResponseMessage('Message sent. A member of Apex Blue will follow up shortly.');
+      setResponseMessage(
+        result.warning || 'Message sent. A member of Apex Blue will follow up shortly.'
+      );
       setValues(initialValues);
     } catch (error) {
       setStatus('error');

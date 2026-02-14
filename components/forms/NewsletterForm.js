@@ -18,12 +18,12 @@ export default function NewsletterForm() {
     try {
       setStatus('loading');
       setMessage('');
-      await submitForm('newsletter', {
+      const result = await submitForm('newsletter', {
         email,
         source: 'apex-blue-footer-newsletter'
       });
       setStatus('success');
-      setMessage('Thanks. You are now subscribed for GPT, blog, and podcast updates.');
+      setMessage(result.warning || 'Thanks. You are now subscribed for GPT, blog, and podcast updates.');
       setEmail('');
     } catch (error) {
       setStatus('error');
