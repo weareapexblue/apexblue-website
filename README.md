@@ -48,6 +48,9 @@ DATABASE_URL=
 RESEND_API_KEY=
 FORM_NOTIFICATION_TO=guru@apex.blue
 FORM_NOTIFICATION_FROM="Apex Blue Forms <forms@apex.blue>"
+ADMIN_USERNAME=
+ADMIN_PASSWORD=
+ADMIN_COOKIE_SECRET=
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=apex.blue
 PLAUSIBLE_API_KEY=
 PLAUSIBLE_SITE_ID=apex.blue
@@ -57,6 +60,7 @@ Notes:
 
 - Forms submit to `/api/forms/[formType]` and are saved in a `form_submissions` table.
 - If `RESEND_API_KEY` is missing, submissions are still saved, but notification email alerts are skipped.
+- Admin dashboard is available at `/admin/`; set `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_COOKIE_SECRET` in production.
 - If Plausible domain is set, the client tracking script is injected.
 
 ## Build and Deploy
