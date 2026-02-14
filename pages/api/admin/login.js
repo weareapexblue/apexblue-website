@@ -1,4 +1,4 @@
-import { createAdminSessionCookie, verifyAdminCredentials } from '@/lib/adminAuth';
+import { createAdminSessionCookie, isAdminAuthConfigured, verifyAdminCredentials } from '@/lib/adminAuth';
 
 function cleanText(value, maxLength = 320) {
   if (!value) return '';
@@ -13,6 +13,13 @@ export default async function handler(req, res) {
 
   const username = cleanText(req.body?.username, 320).toLowerCase();
   const password = cleanText(req.body?.password, 320);
+
+  if (!isAdminAuthConfigured()) {
+    return res.status(503).json({
+      ok: false,
+      error: 'Admin authentication is not configured on this environment.'
+    });
+  }
 
   if (!verifyAdminCredentials(username, password)) {
     return res.status(401).json({ ok: false, error: 'Invalid credentials.' });
